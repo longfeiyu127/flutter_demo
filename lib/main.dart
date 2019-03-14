@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'model/post.dart';
+import 'demo/listview_demo.dart';
+import 'demo/hello_demo.dart';
+import 'demo/drawer_demo.dart';
+import 'demo/bottom_navigation_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,62 +11,59 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Home(),
       theme: ThemeData(
-        primarySwatch: Colors.yellow
+        primarySwatch: Colors.blue,
+        highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
+        splashColor: Colors.white70
       ),
     );
   }
 }
 
 class Home extends StatelessWidget {
-  Widget _listItemBuilder(BuildContext context, int index) {
-    return Container(
-      color: Colors.white,
-      margin: EdgeInsets.all(8.0),
-      child: Column(
-        children: <Widget>[
-          Image.network(posts[index].imageUrl),
-          SizedBox(height: 16.0),
-          Text(
-            posts[index].title,
-            style: Theme.of(context).textTheme.title,
-          ),
-          SizedBox(height: 16.0),
-        ],
-      ),
-    );
-  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("nihao"),
-        elevation: 0.0,
-      ),
-      body: ListView.builder(
-        itemCount: posts.length,
-        itemBuilder: _listItemBuilder,
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("招商仁和人寿"),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search),
+              tooltip: 'search',
+              onPressed: () => debugPrint('search button is pressed'),
+            )
+          ],
+          elevation: 0.0,
+          bottom: TabBar(
+            unselectedLabelColor: Colors.black38,
+            indicatorColor: Colors.black54,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorWeight: 1.0,
+            tabs: <Widget>[
+              Tab(icon: Icon(Icons.local_florist),),
+              Tab(icon: Icon(Icons.change_history),),
+              Tab(icon: Icon(Icons.directions_bike),),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: <Widget>[
+            ListViewDemo(),
+            Icon(Icons.change_history, size: 128.0, color: Colors.black12,),
+            Icon(Icons.directions_bike, size: 128.0, color: Colors.black12,),
+          ],
+        ),
+        drawer: DrawerDemo(),
+        bottomNavigationBar: BottomNavigationDemo(),
       ),
     );
   }
 }
 
-class Hello extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Center(
-      child: Text(
-        "nihao",
-        textDirection: TextDirection.ltr,
-        style: TextStyle(
-          fontSize: 40.0,
-          fontWeight: FontWeight.bold,
-          color: Colors.yellow,
-        ),
-      ),
-    );
-  }
-}
