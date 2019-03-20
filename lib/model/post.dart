@@ -1,75 +1,108 @@
 class Post {
-  const Post({
+  Post({
     this.title,
     this.author,
-    this.imageUrl
+    this.imageUrl,
+    this.description,
   });
 
   final String title;
   final String author;
   final String imageUrl;
+  final String description;
 
+  bool selected = false;
 }
 
 final List<Post> posts = [
   Post(
-    title: "1",
-    author: "zhangsan",
-    imageUrl: "https://www-di1.dev.cmrh.com/cms/static/img/09fcfafc2131763925b4bd113942a4ee.png"
+    title: 'Candy Shop',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/candy-shop.jpg',
   ),
   Post(
-      title: "2",
-      author: "zhangsan",
-      imageUrl: "https://www-di1.dev.cmrh.com/cms/static/img/09fcfafc2131763925b4bd113942a4ee.png"
+    title: 'Childhood in a picture',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/childhood-in-a-picture.jpg',
   ),
   Post(
-      title: "3",
-      author: "zhangsan",
-      imageUrl: "https://www-di1.dev.cmrh.com/cms/static/img/09fcfafc2131763925b4bd113942a4ee.png"
+    title: 'Contained',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/contained.jpg',
   ),
   Post(
-      title: "3",
-      author: "zhangsan",
-      imageUrl: "https://www-di1.dev.cmrh.com/cms/static/img/09fcfafc2131763925b4bd113942a4ee.png"
+    title: 'Dragon',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/dragon.jpg',
   ),
   Post(
-      title: "3",
-      author: "zhangsan",
-      imageUrl: "https://www-di1.dev.cmrh.com/cms/static/img/09fcfafc2131763925b4bd113942a4ee.png"
+    title: 'Free Hugs',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/free_hugs.jpg',
   ),
   Post(
-      title: "3",
-      author: "zhangsan",
-      imageUrl: "https://www-di1.dev.cmrh.com/cms/static/img/09fcfafc2131763925b4bd113942a4ee.png"
+    title: 'Gravity Falls',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/gravity-falls.png',
   ),
   Post(
-      title: "3",
-      author: "zhangsan",
-      imageUrl: "https://www-di1.dev.cmrh.com/cms/static/img/09fcfafc2131763925b4bd113942a4ee.png"
+    title: 'Icecream Truck',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/icecreamtruck.png',
   ),
   Post(
-      title: "3",
-      author: "zhangsan",
-      imageUrl: "https://www-di1.dev.cmrh.com/cms/static/img/09fcfafc2131763925b4bd113942a4ee.png"
+    title: 'keyclack',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/keyclack.jpg',
   ),
   Post(
-      title: "3",
-      author: "zhangsan",
-      imageUrl: "https://www-di1.dev.cmrh.com/cms/static/img/09fcfafc2131763925b4bd113942a4ee.png"
+    title: 'Overkill',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/overkill.png',
   ),
   Post(
-      title: "3",
-      author: "zhangsan",
-      imageUrl: "https://www-di1.dev.cmrh.com/cms/static/img/09fcfafc2131763925b4bd113942a4ee.png"
+    title: 'Say Hello to Barry',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/say-hello-to-barry.jpg',
   ),
   Post(
-      title: "3",
-      author: "zhangsan",
-      imageUrl: "https://www-di1.dev.cmrh.com/cms/static/img/09fcfafc2131763925b4bd113942a4ee.png"
+    title: 'Space Skull',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/space-skull.jpg',
   ),
   Post(
-      title: "3",
-      author: "zhangsan",
-      imageUrl: "https://www-di1.dev.cmrh.com/cms/static/img/09fcfafc2131763925b4bd113942a4ee.png"
+    title: 'The Old Fashioned',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/the-old-fashioned.png',
   ),
+  Post(
+    title: 'Tornado',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/tornado.jpg',
+  ),
+  Post(
+    title: 'Undo',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/undo.jpg',
+  ),
+  Post(
+    title: 'White Dragon',
+    author: 'Mohamed Chahin',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://www.longfeiyu.com.cn/static/flutter_demo/images/white-dragon.jpg',
+  )
 ];
