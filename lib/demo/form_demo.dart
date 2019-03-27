@@ -13,7 +13,7 @@ class FormDemo extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TextFieldDemo()
+              RegisterForm()
             ],
           ),
         )
@@ -21,6 +21,94 @@ class FormDemo extends StatelessWidget {
     );
   }
 }
+
+class RegisterForm extends StatefulWidget {
+  @override
+  _RegisterFormState createState() => new _RegisterFormState();
+}
+
+class _RegisterFormState extends State<RegisterForm> {
+  final registerFormKey = GlobalKey<FormState>();
+  String userName, password;
+  bool autovalidate = false;
+
+  void submitRegisterForm () {
+    if (registerFormKey.currentState.validate()) {
+      registerFormKey.currentState.save();
+      registerFormKey.currentState.validate();
+
+      debugPrint('username: $userName');
+      debugPrint('password: $password');
+
+      Scaffold.of(context).showSnackBar(
+        SnackBar(content: Text('Registering...'))
+      );
+    } else {
+      setState(() {
+        autovalidate = true;
+      });
+    }
+  }
+
+  String validateUserName(value) {
+    if (value.isEmpty) {
+      return 'username is required';
+    }
+    return null;
+  }
+
+  String validatePassWord(value) {
+    if (value.isEmpty) {
+      return 'passWord is required';
+    }
+
+    return null;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: registerFormKey,
+      child: Column(
+        children: <Widget>[
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: 'UserName',
+              helperText: '',
+            ),
+            onSaved: (value) {
+              userName = value;
+            },
+            validator: validateUserName,
+            autovalidate: autovalidate,
+          ),
+          TextFormField(
+            obscureText: true,
+            decoration: InputDecoration(
+              labelText: 'Password',
+              helperText: '',
+            ),
+            onSaved: (value) {
+              password = value;
+            },
+            validator: validatePassWord,
+            autovalidate: autovalidate,
+          ),
+          SizedBox(height: 32.0,),
+          Container(
+            width: double.infinity,
+            child: RaisedButton(
+              color: Theme.of(context).accentColor,
+              child: Text('register', style: TextStyle(color: Colors.white),),
+              onPressed: submitRegisterForm,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
 
 class TextFieldDemo extends StatefulWidget {
   @override

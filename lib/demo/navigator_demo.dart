@@ -10,12 +10,20 @@ class NavigatorDemo extends StatelessWidget {
           children: <Widget>[
             FlatButton(
               child: Text('Home'),
-              onPressed: null,
+              onPressed: () {
+                Navigator.pushNamed(context, '/');
+              },
             ),
             FlatButton(
               child: Text('About'),
               onPressed: () {
                 Navigator.pushNamed(context, '/about');
+              },
+            ),
+            FlatButton(
+              child: Text('form'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/form');
               },
             ),
           ],
